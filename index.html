@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event and Randomness</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  #random-paragraph {
+    margin-top: 20px;
+  }
+    
+  #changeFontSizeBtn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 20px;
+        color:black;
+    }
+
+    #changeFontSizeBtn:hover {
+        background-color: lightgrey;
+    }
+
+    h1 {
+        font-size: 70px;
+    }
+</style>
+
+</head>
+
+
+<body>
+  <h1>Font Randomness</h1>
+  <button id="changeFontSizeBtn">Click me to change font size ↓</button>
+  <p id="random-paragraph">This is a random paragraph.</p>
+
+<script>
+  const changeFontSizeBtn = document.getElementById('changeFontSizeBtn');
+  const randomParagraph = document.getElementById('random-paragraph');
+
+  function getRandomFontSize() {
+    const minSize = 5; 
+    const maxSize = 200; 
+    return Math.floor(Math.random() * (maxSize - minSize + 1)) + minSize;
+  }
+
+
+  changeFontSizeBtn.addEventListener('click', function() {
+    const randomFontSize = getRandomFontSize();
+    randomParagraph.style.fontSize = randomFontSize + 'px';
+  });
+</script>
+</body>
+</html>
